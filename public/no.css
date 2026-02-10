@@ -1,0 +1,85 @@
+/* NoCSS — attempt to revert to user-agent defaults as much as possible.
+   Strategy: use `all: revert !important` to cause author styles to revert to UA styles.
+   Limitations: cannot always override inline styles using !important defined inline.
+   Browser support: modern browsers support `revert`. Provide `unset` fallback.
+*/
+
+/* Apply to everything to remove author-defined styling where possible */
+*,
+*::before,
+*::after {
+  /* Revert to browser defaults where supported */
+  all: revert !important;
+  /* Fallback for older browsers */
+  font: revert !important;
+  color: revert !important;
+  background: transparent !important;
+  margin: revert !important;
+  padding: revert !important;
+  border: revert !important;
+  box-sizing: content-box !important;
+  text-decoration: revert !important;
+  vertical-align: baseline !important;
+}
+
+/* Ensure links appear like default UA links */
+a, a:visited {
+  color: -webkit-link !important;
+  text-decoration: underline !important;
+}
+
+/* Headings: allow browser defaults for weights and margins */
+h1,h2,h3,h4,h5,h6 {
+  font-weight: revert !important;
+  margin: revert !important;
+}
+
+/* Lists: show bullets and numbers by default */
+ul, ol {
+  list-style: revert !important;
+  margin: revert !important;
+  padding: revert !important;
+}
+
+/* Images: show natural size / inline behavior */
+img {
+  max-width: none !important;
+  height: auto !important;
+  border: none !important;
+}
+
+/* Tables: basic layout */
+table {
+  border-collapse: separate !important;
+  border-spacing: revert !important;
+}
+
+/* Forms: let UA render default controls */
+button, input, select, textarea {
+  all: revert !important;
+  -webkit-appearance: none !important; /* fallback; some browsers */
+}
+
+/* Reset layout-affecting rule sets that authors commonly change */
+html, body {
+  all: revert !important;
+  height: auto !important;
+  background: transparent !important;
+  color: revert !important;
+  font-family: revert !important;
+  line-height: revert !important;
+}
+
+/* Provide an explicit low-specificity rule to avoid hiding content */
+[hidden] {
+  display: none !important;
+}
+
+/* A minimal mobile/desktop friendly baseline for when UA defaults differ wildly */
+@media (max-width: 600px) {
+  html, body {
+    font-size: revert !important;
+  }
+}
+
+/* END of NoCSS */

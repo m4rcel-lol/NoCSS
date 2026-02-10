@@ -27,7 +27,7 @@ test.describe('NoCSS Visual Tests', () => {
     await page.goto('/');
     
     // Check for key elements
-    await expect(page.getByRole('heading', { name: 'Make any page look like it' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Make any page look like it has no CSS' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Get /no.css' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Try Demo' })).toBeVisible();
   });

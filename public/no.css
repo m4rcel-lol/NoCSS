@@ -55,6 +55,7 @@ html {
   color: #000 !important;
   background: #fff !important;
   overflow: auto !important;
+  color-scheme: light dark !important;
 }
 
 body {
@@ -289,6 +290,50 @@ img {
 /* ——— Hidden attribute ——— */
 [hidden] {
   display: none !important;
+}
+
+/* ——— System dark-theme adaptation ——— */
+@media (prefers-color-scheme: dark) {
+  html {
+    color: #fff !important;
+    background: #121212 !important;
+  }
+
+  body {
+    color: #fff !important;
+    background: #121212 !important;
+  }
+
+  a {
+    color: #9e9eff !important;
+  }
+
+  a:visited {
+    color: #d0adf0 !important;
+  }
+
+  mark {
+    background: #ff0 !important;
+    color: #000 !important;
+  }
+
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    background: #3a3a3a !important;
+    color: #fff !important;
+  }
+
+  input, textarea {
+    background: #121212 !important;
+    color: #fff !important;
+  }
+
+  select {
+    background: #121212 !important;
+    color: #fff !important;
+  }
 }
 
 /* END of NoCSS */

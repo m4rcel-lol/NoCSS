@@ -89,23 +89,25 @@ export default function DocsPage() {
               </h2>
               <div className="prose max-w-none text-gray-700 space-y-4">
                 <p>
-                  NoCSS uses the CSS <code className="bg-gray-100 px-2 py-1 rounded">all: revert</code> property with <code className="bg-gray-100 px-2 py-1 rounded">!important</code> to force all elements to revert to their user-agent (browser default) styles.
+                  NoCSS is a custom-written stylesheet that explicitly sets CSS properties to browser-default values using <code className="bg-gray-100 px-2 py-1 rounded">!important</code>, overriding any author styles.
                 </p>
                 <p>
                   The strategy is simple but powerful:
                 </p>
                 <ol className="list-decimal list-inside space-y-2 ml-4">
-                  <li>Apply universal selector <code className="bg-gray-100 px-2 py-1 rounded">*</code> to target all elements</li>
-                  <li>Use <code className="bg-gray-100 px-2 py-1 rounded">all: revert !important</code> to revert all properties</li>
+                  <li>Apply universal selector <code className="bg-gray-100 px-2 py-1 rounded">*</code> to clear common author styling</li>
+                  <li>Set explicit default values for root, body, headings, lists, tables, and form elements</li>
                   <li>Include pseudo-elements <code className="bg-gray-100 px-2 py-1 rounded">::before</code> and <code className="bg-gray-100 px-2 py-1 rounded">::after</code></li>
-                  <li>Provide fallback rules for older browsers</li>
+                  <li>Restore correct display types for block, inline, and table elements</li>
                   <li>Add specific rules for common elements (links, headings, lists, etc.)</li>
                 </ol>
                 <div className="bg-gray-900 text-white p-4 rounded-lg mt-4 overflow-x-auto">
                   <code className="text-sm">
                     {`*, *::before, *::after {
-  all: revert !important;
-  /* ... additional fallback properties ... */
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  /* ... explicit browser-default values ... */
 }`}
                   </code>
                 </div>
@@ -119,16 +121,16 @@ export default function DocsPage() {
               </h2>
               <div className="prose max-w-none text-gray-700 space-y-4">
                 <p>
-                  NoCSS works best in modern evergreen browsers that support the <code className="bg-gray-100 px-2 py-1 rounded">all: revert</code> property:
+                  NoCSS uses only standard CSS properties with explicit values, so it works in all browsers:
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li><strong>Chrome/Edge:</strong> Version 84+ (July 2020)</li>
-                  <li><strong>Firefox:</strong> Version 89+ (June 2021)</li>
-                  <li><strong>Safari:</strong> Version 9.1+ (March 2016)</li>
-                  <li><strong>Opera:</strong> Version 70+ (July 2020)</li>
+                  <li><strong>Chrome/Edge:</strong> All modern versions</li>
+                  <li><strong>Firefox:</strong> All modern versions</li>
+                  <li><strong>Safari:</strong> All modern versions</li>
+                  <li><strong>Opera:</strong> All modern versions</li>
                 </ul>
-                <p className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                  <strong>Note:</strong> Older browsers will fall back to individual property resets, which may not be as comprehensive but will still remove most custom styling.
+                <p className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                  <strong>Note:</strong> Since NoCSS uses explicit property values rather than relying on special CSS keywords, it has broad browser compatibility.
                 </p>
               </div>
             </section>
@@ -160,7 +162,7 @@ export default function DocsPage() {
                       2. JavaScript-Applied Styles
                     </h3>
                     <p>
-                      Styles applied dynamically via JavaScript after NoCSS loads may not be fully reverted, especially if they use inline styles or <code className="bg-white px-2 py-1 rounded">!important</code>.
+                      Styles applied dynamically via JavaScript after NoCSS loads may not be fully overridden, especially if they use inline styles or <code className="bg-white px-2 py-1 rounded">!important</code>.
                     </p>
                   </div>
 
@@ -178,7 +180,7 @@ export default function DocsPage() {
                       4. Browser Differences
                     </h3>
                     <p>
-                      User-agent styles differ between browsers. A &quot;reverted&quot; page will look slightly different in Chrome vs. Firefox vs. Safari.
+                      User-agent styles differ between browsers. A page with NoCSS applied will look slightly different in Chrome vs. Firefox vs. Safari.
                     </p>
                   </div>
                 </div>

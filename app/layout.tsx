@@ -4,7 +4,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'NoCSS - Make any page look like it has no CSS',
   description:
-    'Drop-in stylesheet that makes any webpage revert to browser default appearance',
+    'Drop-in stylesheet that makes any webpage look like it has no CSS',
   keywords: [
     'css',
     'reset',

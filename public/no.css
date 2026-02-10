@@ -1,85 +1,260 @@
-/* NoCSS — attempt to revert to user-agent defaults as much as possible.
-   Strategy: use `all: revert !important` to cause author styles to revert to UA styles.
+/* NoCSS — custom-written stylesheet that mimics the unstyled browser-default look.
+   Strategy: explicitly set properties to user-agent default values using !important.
+   No revert blocks are used — all values are hand-written to match UA defaults.
    Limitations: cannot always override inline styles using !important defined inline.
-   Browser support: modern browsers support `revert`. Provide `unset` fallback.
 */
 
-/* Apply to everything to remove author-defined styling where possible */
+/* ——— Universal baseline: clear common author styling ——— */
 *,
 *::before,
 *::after {
-  /* Revert to browser defaults where supported */
-  all: revert !important;
-  /* Fallback for older browsers */
-  font: revert !important;
-  color: revert !important;
   background: transparent !important;
-  margin: revert !important;
-  padding: revert !important;
-  border: revert !important;
+  background-image: none !important;
   box-sizing: content-box !important;
-  text-decoration: revert !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  text-indent: 0 !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  font-style: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  text-decoration: none !important;
   vertical-align: baseline !important;
+  float: none !important;
+  clear: none !important;
+  position: static !important;
+  z-index: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+  filter: none !important;
+  outline: initial !important;
 }
 
-/* Ensure links appear like default UA links */
-a, a:visited {
-  color: -webkit-link !important;
+/* ——— Root & body ——— */
+html {
+  font: 16px/normal serif !important;
+  color: #000 !important;
+  background: #fff !important;
+  overflow: auto !important;
+}
+
+body {
+  font: 16px/normal serif !important;
+  color: #000 !important;
+  background: #fff !important;
+  margin: 8px !important;
+}
+
+/* ——— Block-level elements ——— */
+address, article, aside, blockquote, details, dialog,
+dd, div, dl, dt, fieldset, figcaption, figure, footer, form,
+header, hgroup, main, nav, p, pre, search, section, summary {
+  display: block !important;
+}
+
+/* ——— Headings ——— */
+h1 {
+  display: block !important;
+  font-size: 2em !important;
+  font-weight: bold !important;
+  margin: 0.67em 0 !important;
+}
+
+h2 {
+  display: block !important;
+  font-size: 1.5em !important;
+  font-weight: bold !important;
+  margin: 0.83em 0 !important;
+}
+
+h3 {
+  display: block !important;
+  font-size: 1.17em !important;
+  font-weight: bold !important;
+  margin: 1em 0 !important;
+}
+
+h4 {
+  display: block !important;
+  font-size: 1em !important;
+  font-weight: bold !important;
+  margin: 1.33em 0 !important;
+}
+
+h5 {
+  display: block !important;
+  font-size: 0.83em !important;
+  font-weight: bold !important;
+  margin: 1.67em 0 !important;
+}
+
+h6 {
+  display: block !important;
+  font-size: 0.67em !important;
+  font-weight: bold !important;
+  margin: 2.33em 0 !important;
+}
+
+/* ——— Paragraphs ——— */
+p {
+  margin: 1em 0 !important;
+}
+
+/* ——— Links ——— */
+a {
+  color: #0000ee !important;
   text-decoration: underline !important;
 }
 
-/* Headings: allow browser defaults for weights and margins */
-h1,h2,h3,h4,h5,h6 {
-  font-weight: revert !important;
-  margin: revert !important;
+a:visited {
+  color: #551a8b !important;
 }
 
-/* Lists: show bullets and numbers by default */
-ul, ol {
-  list-style: revert !important;
-  margin: revert !important;
-  padding: revert !important;
+/* ——— Lists ——— */
+ul {
+  display: block !important;
+  list-style-type: disc !important;
+  margin: 1em 0 !important;
+  padding-left: 40px !important;
 }
 
-/* Images: show natural size / inline behavior */
+ol {
+  display: block !important;
+  list-style-type: decimal !important;
+  margin: 1em 0 !important;
+  padding-left: 40px !important;
+}
+
+li {
+  display: list-item !important;
+}
+
+/* ——— Tables ——— */
+table {
+  display: table !important;
+  border-collapse: separate !important;
+  border-spacing: 2px !important;
+}
+
+caption { display: table-caption !important; text-align: center !important; }
+thead { display: table-header-group !important; }
+tbody { display: table-row-group !important; }
+tfoot { display: table-footer-group !important; }
+tr { display: table-row !important; }
+col { display: table-column !important; }
+colgroup { display: table-column-group !important; }
+
+th, td {
+  display: table-cell !important;
+  padding: 1px !important;
+  vertical-align: middle !important;
+}
+
+th {
+  font-weight: bold !important;
+  text-align: center !important;
+}
+
+/* ——— Form elements ——— */
+input, textarea {
+  border: 2px inset !important;
+  padding: 1px !important;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  text-align: center !important;
+  padding: 1px 6px !important;
+  border: 2px outset !important;
+  background: #efefef !important;
+}
+
+select {
+  border: 1px solid !important;
+}
+
+/* ——— Preformatted & code ——— */
+pre, code, kbd, samp {
+  font-family: monospace !important;
+  font-size: 1em !important;
+}
+
+pre {
+  margin: 1em 0 !important;
+  white-space: pre !important;
+}
+
+/* ——— Inline text semantics ——— */
+strong, b { font-weight: bold !important; }
+em, i, cite, var, dfn { font-style: italic !important; }
+small { font-size: smaller !important; }
+
+sub {
+  vertical-align: sub !important;
+  font-size: smaller !important;
+}
+
+sup {
+  vertical-align: super !important;
+  font-size: smaller !important;
+}
+
+u, ins { text-decoration: underline !important; }
+s, strike, del { text-decoration: line-through !important; }
+
+mark {
+  background: #ff0 !important;
+  color: #000 !important;
+}
+
+abbr[title] {
+  text-decoration: underline dotted !important;
+}
+
+/* ——— Horizontal rule ——— */
+hr {
+  display: block !important;
+  margin: 0.5em 0 !important;
+  border: 1px inset !important;
+  height: 0 !important;
+}
+
+/* ——— Blockquote ——— */
+blockquote {
+  margin: 1em 40px !important;
+}
+
+/* ——— Images & media ——— */
 img {
   max-width: none !important;
   height: auto !important;
   border: none !important;
 }
 
-/* Tables: basic layout */
-table {
-  border-collapse: separate !important;
-  border-spacing: revert !important;
-}
-
-/* Forms: let UA render default controls */
-button, input, select, textarea {
-  all: revert !important;
-  -webkit-appearance: none !important; /* fallback; some browsers */
-}
-
-/* Reset layout-affecting rule sets that authors commonly change */
-html, body {
-  all: revert !important;
-  height: auto !important;
-  background: transparent !important;
-  color: revert !important;
-  font-family: revert !important;
-  line-height: revert !important;
-}
-
-/* Provide an explicit low-specificity rule to avoid hiding content */
+/* ——— Hidden attribute ——— */
 [hidden] {
   display: none !important;
-}
-
-/* A minimal mobile/desktop friendly baseline for when UA defaults differ wildly */
-@media (max-width: 600px) {
-  html, body {
-    font-size: revert !important;
-  }
 }
 
 /* END of NoCSS */

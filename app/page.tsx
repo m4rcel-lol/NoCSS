@@ -59,7 +59,7 @@ export default function Home() {
             <span className="underline decoration-yellow-400">no CSS</span>
           </h1>
           <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Drop-in stylesheet that reverts any webpage to browser default appearance
+            Drop-in stylesheet that strips any webpage back to browser default appearance
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -180,9 +180,9 @@ document.head.appendChild(link);`}</pre>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-purple-50 p-6 rounded-lg">
               <div className="text-4xl mb-4">🔄</div>
-              <h3 className="text-xl font-bold mb-2">Revert Strategy</h3>
+              <h3 className="text-xl font-bold mb-2">Custom Defaults</h3>
               <p className="text-gray-700">
-                Uses CSS <code className="bg-white px-2 py-1 rounded">all: revert !important</code> to force styles back to browser defaults
+                Hand-written CSS that explicitly sets every property to browser-default values
               </p>
             </div>
             <div className="bg-blue-50 p-6 rounded-lg">

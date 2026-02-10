@@ -230,7 +230,7 @@ export default function DemoPage() {
                   <strong>Before:</strong> The sample page has custom CSS with colors, layouts, fonts, and styling
                 </li>
                 <li>
-                  <strong>After:</strong> NoCSS uses <code className="bg-white px-2 py-1 rounded">all: revert !important</code> to force everything back to browser defaults
+                  <strong>After:</strong> NoCSS uses hand-written CSS to explicitly set every property back to browser defaults
                 </li>
                 <li>
                   All custom colors, spacing, typography, and layouts are removed

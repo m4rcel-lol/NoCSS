@@ -6,7 +6,7 @@
 
 **Make any page look like it has no CSS — drop-in stylesheet**
 
-NoCSS is a production-quality stylesheet that, when applied to any webpage, reverts it to browser default (user-agent) appearance. It uses modern CSS techniques to strip away author-defined styling and restore the raw, unstyled look of HTML.
+NoCSS is a production-quality stylesheet that, when applied to any webpage, makes it look like it has no CSS. It uses hand-written CSS rules that explicitly set properties to browser-default values, stripping away author-defined styling and restoring the raw, unstyled look of HTML.
 
 🔗 **[Live Demo](https://nocss.vercel.app)** | 📖 **[Documentation](https://nocss.vercel.app/docs)** | 🎯 **[Try Interactive Demo](https://nocss.vercel.app/demo)**
 
@@ -15,7 +15,7 @@ NoCSS is a production-quality stylesheet that, when applied to any webpage, reve
 ## ✨ Features
 
 - 🎯 **Drop-in Solution**: Single `<link>` tag to remove all styling
-- 🔄 **Revert Strategy**: Uses `all: revert !important` to restore UA styles
+- 🔄 **Custom Defaults**: Explicitly sets every property to browser-default values
 - 🌍 **CDN Ready**: Optimized headers for global caching
 - 🔓 **CORS Enabled**: Use on any domain
 - 📦 **Zero Dependencies**: Pure CSS, no JavaScript required
@@ -64,33 +64,35 @@ document.head.appendChild(link);
 
 ## 📖 How It Works
 
-NoCSS uses the CSS `all: revert` property with `!important` to force all elements back to their browser default (user-agent) styles.
+NoCSS is a custom-written stylesheet that explicitly sets CSS properties to browser-default values using `!important`, overriding any author styles.
 
 ```css
 *, *::before, *::after {
-  all: revert !important;
-  /* Additional fallback properties */
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  /* ... explicit browser-default values ... */
 }
 ```
 
 This strategy:
 1. Applies to all elements including pseudo-elements
-2. Reverts all CSS properties to browser defaults
+2. Sets explicit default values for every common CSS property
 3. Cannot be overridden by author styles (except inline `!important`)
-4. Works in all modern browsers with fallbacks for older ones
+4. Uses only standard CSS properties — no special keywords needed
 
 ---
 
 ## 🌐 Browser Support
 
-| Browser | Version | Support |
-|---------|---------|---------|
-| Chrome/Edge | 84+ | ✅ Full |
-| Firefox | 89+ | ✅ Full |
-| Safari | 9.1+ | ✅ Full |
-| Opera | 70+ | ✅ Full |
+| Browser | Support |
+|---------|---------|
+| Chrome/Edge | ✅ Full |
+| Firefox | ✅ Full |
+| Safari | ✅ Full |
+| Opera | ✅ Full |
 
-Older browsers will fall back to individual property resets.
+NoCSS uses only standard CSS properties with explicit values, providing broad browser compatibility.
 
 ---
 
@@ -108,10 +110,10 @@ Cannot override inline styles that also use `!important`:
 Styles within Shadow DOM (web components) are isolated and cannot be affected.
 
 ### 3. JavaScript-Applied Styles
-Dynamically applied inline styles may not be fully reverted, especially if they use `!important`.
+Dynamically applied inline styles may not be fully overridden, especially if they use `!important`.
 
 ### 4. Browser Differences
-User-agent styles differ between browsers. A "reverted" page will look slightly different in Chrome vs. Firefox vs. Safari.
+User-agent styles differ between browsers. A page with NoCSS applied will look slightly different in Chrome vs. Firefox vs. Safari.
 
 See the [full documentation](https://nocss.vercel.app/docs#limitations) for details.
 

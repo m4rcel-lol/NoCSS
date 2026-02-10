@@ -122,7 +122,7 @@ NoCSS/
 
 - Use Tailwind CSS for landing site
 - Follow BEM naming for custom CSS
-- Maintain no.css as pure revert strategy
+- Maintain no.css as custom-written defaults
 - Comment complex rules
 
 ### Commits

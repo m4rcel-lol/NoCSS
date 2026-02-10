@@ -84,7 +84,7 @@ These are design limitations, not security vulnerabilities:
 
 1. **Cannot Override Inline !important**: CSS cannot override inline styles with `!important`
 2. **Shadow DOM**: Cannot penetrate Shadow DOM boundaries
-3. **Dynamic JS Styles**: May not fully revert dynamically applied styles
+3. **Dynamic JS Styles**: May not fully override dynamically applied styles
 4. **Browser Differences**: User-agent styles vary by browser
 
 ## Best Practices for Users

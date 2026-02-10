@@ -155,13 +155,34 @@ table {
   border-spacing: 2px !important;
 }
 
-caption { display: table-caption !important; text-align: center !important; }
-thead { display: table-header-group !important; }
-tbody { display: table-row-group !important; }
-tfoot { display: table-footer-group !important; }
-tr { display: table-row !important; }
-col { display: table-column !important; }
-colgroup { display: table-column-group !important; }
+caption {
+  display: table-caption !important;
+  text-align: center !important;
+}
+
+thead {
+  display: table-header-group !important;
+}
+
+tbody {
+  display: table-row-group !important;
+}
+
+tfoot {
+  display: table-footer-group !important;
+}
+
+tr {
+  display: table-row !important;
+}
+
+col {
+  display: table-column !important;
+}
+
+colgroup {
+  display: table-column-group !important;
+}
 
 th, td {
   display: table-cell !important;
@@ -206,9 +227,17 @@ pre {
 }
 
 /* ——— Inline text semantics ——— */
-strong, b { font-weight: bold !important; }
-em, i, cite, var, dfn { font-style: italic !important; }
-small { font-size: smaller !important; }
+strong, b {
+  font-weight: bold !important;
+}
+
+em, i, cite, var, dfn {
+  font-style: italic !important;
+}
+
+small {
+  font-size: smaller !important;
+}
 
 sub {
   vertical-align: sub !important;
@@ -220,8 +249,13 @@ sup {
   font-size: smaller !important;
 }
 
-u, ins { text-decoration: underline !important; }
-s, strike, del { text-decoration: line-through !important; }
+u, ins {
+  text-decoration: underline !important;
+}
+
+s, strike, del {
+  text-decoration: line-through !important;
+}
 
 mark {
   background: #ff0 !important;

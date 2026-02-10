@@ -27,7 +27,7 @@ test.describe('NoCSS Visual Tests', () => {
     await page.goto('/');
     
     // Check for key elements
-    await expect(page.getByText('Make any page look like it has')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Make any page look like it' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Get /no.css' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Try Demo' })).toBeVisible();
   });
@@ -37,9 +37,9 @@ test.describe('NoCSS Visual Tests', () => {
     
     // Check for documentation sections
     await expect(page.getByRole('heading', { name: 'Documentation' })).toBeVisible();
-    await expect(page.getByText('How It Works')).toBeVisible();
-    await expect(page.getByText('Browser Support')).toBeVisible();
-    await expect(page.getByText('Limitations')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'How It Works' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Browser Support' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Limitations' })).toBeVisible();
   });
 
   test('demo page toggle functionality', async ({ page }) => {

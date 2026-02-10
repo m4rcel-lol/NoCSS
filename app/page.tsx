@@ -216,6 +216,7 @@ document.head.appendChild(link);`}</pre>
             rel="noopener noreferrer"
             className="inline-block"
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://vercel.com/button"
               alt="Deploy with Vercel"

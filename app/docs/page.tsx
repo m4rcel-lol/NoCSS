@@ -178,7 +178,7 @@ export default function DocsPage() {
                       4. Browser Differences
                     </h3>
                     <p>
-                      User-agent styles differ between browsers. A "reverted" page will look slightly different in Chrome vs. Firefox vs. Safari.
+                      User-agent styles differ between browsers. A &quot;reverted&quot; page will look slightly different in Chrome vs. Firefox vs. Safari.
                     </p>
                   </div>
                 </div>

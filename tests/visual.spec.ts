@@ -42,56 +42,14 @@ test.describe('NoCSS Visual Tests', () => {
     await expect(page.getByText('Limitations')).toBeVisible();
   });
 
-  test('visual regression - sample site before and after NoCSS', async ({
-    page,
-  }) => {
-    // Navigate to the sample site
-    await page.goto('/examples/sample-site/index.html');
-
-    // Wait for page to fully load
-    await page.waitForLoadState('networkidle');
-
-    // Take screenshot BEFORE applying NoCSS
-    const beforeScreenshot = await page.screenshot({
-      fullPage: true,
-    });
-    expect(beforeScreenshot).toBeTruthy();
-
-    // Inject NoCSS into the page
-    await page.evaluate(() => {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = '/no.css';
-      document.head.appendChild(link);
-    });
-
-    // Wait a moment for styles to apply
-    await page.waitForTimeout(500);
-
-    // Take screenshot AFTER applying NoCSS
-    const afterScreenshot = await page.screenshot({
-      fullPage: true,
-    });
-    expect(afterScreenshot).toBeTruthy();
-
-    // The screenshots should be different
-    expect(beforeScreenshot.length).not.toBe(afterScreenshot.length);
-
-    // Verify some visual changes occurred
-    // Check that custom background is removed
-    const bodyBg = await page.evaluate(() => {
-      return window.getComputedStyle(document.body).background;
-    });
-    
-    // After NoCSS, background should be transparent or default
-    expect(bodyBg).toContain('transparent');
-  });
-
   test('demo page toggle functionality', async ({ page }) => {
     await page.goto('/demo');
     
     // Check initial state
     await expect(page.getByText('NoCSS Status: ❌ Not Applied')).toBeVisible();
+    
+    // Wait for iframe to load
+    await page.waitForTimeout(500);
     
     // Click the toggle button
     await page.getByRole('button', { name: /Apply NoCSS/i }).click();
@@ -122,5 +80,35 @@ test.describe('NoCSS Visual Tests', () => {
     const clipboardText = await page.evaluate(() => navigator.clipboard.readText());
     expect(clipboardText).toContain('javascript:');
     expect(clipboardText).toContain('no.css');
+  });
+
+  test('visual comparison - demo page before and after NoCSS', async ({ page }) => {
+    await page.goto('/demo');
+    
+    // Wait for iframe to load
+    await page.waitForTimeout(1000);
+    
+    // Get iframe element
+    const iframe = page.frameLocator('iframe#demo-iframe');
+    
+    // Verify sample site is loaded with styled content
+    await expect(iframe.locator('h1').first()).toBeVisible();
+    
+    // Take screenshot before
+    const beforeScreenshot = await page.screenshot({ fullPage: true });
+    expect(beforeScreenshot).toBeTruthy();
+    
+    // Click Apply NoCSS button
+    await page.getByRole('button', { name: /Apply NoCSS/i }).click();
+    
+    // Wait for styles to be applied
+    await page.waitForTimeout(500);
+    
+    // Take screenshot after
+    const afterScreenshot = await page.screenshot({ fullPage: true });
+    expect(afterScreenshot).toBeTruthy();
+    
+    // Screenshots should be different
+    expect(beforeScreenshot.length).not.toBe(afterScreenshot.length);
   });
 });

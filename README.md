@@ -101,7 +101,7 @@ NoCSS uses only standard CSS properties with explicit values, providing broad br
 While NoCSS is powerful, it has some limitations:
 
 ### 1. Specificity Conflicts
-Author styles with higher specificity or inline styles may still override NoCSS:
+Without `!important`, author styles with equal or higher specificity may still override NoCSS. Inline styles will always take precedence:
 ```html
 <div style="color: red;">Text stays red</div>
 ```

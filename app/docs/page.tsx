@@ -150,7 +150,7 @@ export default function DocsPage() {
                       1. Specificity Conflicts
                     </h3>
                     <p>
-                      Author styles with higher specificity or inline styles may still override NoCSS. For example:
+                      Without <code className="bg-white px-2 py-1 rounded">!important</code>, author styles with equal or higher specificity may still override NoCSS. Inline styles will always take precedence. For example:
                     </p>
                     <code className="block bg-gray-900 text-white p-2 rounded mt-2 text-sm">
                       {`<div style="color: red;">Text</div>`}

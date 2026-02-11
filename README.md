@@ -64,13 +64,13 @@ document.head.appendChild(link);
 
 ## 📖 How It Works
 
-NoCSS is a custom-written stylesheet that explicitly sets CSS properties to browser-default values using `!important`, overriding any author styles.
+NoCSS is a custom-written stylesheet that explicitly sets CSS properties to browser-default values, recreating the unstyled look of a page with no CSS.
 
 ```css
 *, *::before, *::after {
-  background: transparent !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  background: transparent;
+  margin: 0;
+  padding: 0;
   /* ... explicit browser-default values ... */
 }
 ```
@@ -78,8 +78,8 @@ NoCSS is a custom-written stylesheet that explicitly sets CSS properties to brow
 This strategy:
 1. Applies to all elements including pseudo-elements
 2. Sets explicit default values for every common CSS property
-3. Cannot be overridden by author styles (except inline `!important`)
-4. Uses only standard CSS properties — no special keywords needed
+3. Uses only standard CSS properties — no special keywords or flags needed
+4. Clean, hand-written CSS that recreates the browser-default appearance
 
 ---
 
@@ -100,17 +100,17 @@ NoCSS uses only standard CSS properties with explicit values, providing broad br
 
 While NoCSS is powerful, it has some limitations:
 
-### 1. Inline !important Styles
-Cannot override inline styles that also use `!important`:
+### 1. Specificity Conflicts
+Author styles with higher specificity or inline styles may still override NoCSS:
 ```html
-<div style="color: red !important;">Text stays red</div>
+<div style="color: red;">Text stays red</div>
 ```
 
 ### 2. Shadow DOM
 Styles within Shadow DOM (web components) are isolated and cannot be affected.
 
 ### 3. JavaScript-Applied Styles
-Dynamically applied inline styles may not be fully overridden, especially if they use `!important`.
+Dynamically applied inline styles may not be fully overridden, especially if they use high-specificity selectors.
 
 ### 4. Browser Differences
 User-agent styles differ between browsers. A page with NoCSS applied will look slightly different in Chrome vs. Firefox vs. Safari.

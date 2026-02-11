@@ -1,294 +1,379 @@
 /* NoCSS — custom-written stylesheet that recreates the unstyled browser-default look.
-   Strategy: explicitly set properties to user-agent default values.
-   No revert blocks or !important flags are used — all values are hand-written
-   to match UA defaults as a clean, custom CSS recreation.
+   Strategy: explicitly set properties to user-agent default values with !important
+   to guarantee override of any author styles regardless of selector specificity.
+   No revert blocks are used — all values are hand-written to match UA defaults
+   as a clean, custom CSS recreation.
 */
 
 /* ——— Universal baseline: clear common author styling ——— */
 *,
 *::before,
 *::after {
-  background: transparent;
-  background-image: none;
-  box-sizing: content-box;
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  text-shadow: none;
-  text-transform: none;
-  text-indent: 0;
-  letter-spacing: normal;
-  word-spacing: normal;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  font-style: inherit;
-  line-height: inherit;
-  color: inherit;
-  text-decoration: none;
-  vertical-align: baseline;
-  float: none;
-  clear: none;
-  position: static;
-  z-index: auto;
-  opacity: 1;
-  visibility: visible;
-  min-width: 0;
-  min-height: 0;
-  max-width: none;
-  max-height: none;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  transform: none;
-  transition: none;
-  animation: none;
-  filter: none;
-  outline: initial;
+  background: transparent !important;
+  background-image: none !important;
+  box-sizing: content-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  text-indent: 0 !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  text-align: start !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  font-style: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  float: none !important;
+  clear: none !important;
+  position: static !important;
+  z-index: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+  filter: none !important;
+  outline: initial !important;
+  cursor: auto !important;
+  gap: normal !important;
+  grid-template-columns: none !important;
+  grid-template-rows: none !important;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
+  justify-content: normal !important;
+  align-items: normal !important;
+  align-content: normal !important;
+  align-self: auto !important;
+  order: 0 !important;
+  flex-grow: 0 !important;
+  flex-shrink: 1 !important;
+  flex-basis: auto !important;
+  columns: auto !important;
+  column-gap: normal !important;
+  row-gap: normal !important;
+  backdrop-filter: none !important;
+  clip-path: none !important;
+  contain: none !important;
+  content: normal !important;
+  isolation: auto !important;
+  mix-blend-mode: normal !important;
+  object-fit: fill !important;
+  pointer-events: auto !important;
+  resize: none !important;
+  scroll-behavior: auto !important;
+  table-layout: auto !important;
+  user-select: auto !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  list-style: none !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
 }
 
 /* ——— Root & body ——— */
 html {
-  font: 16px/normal serif;
-  color: #000;
-  background: #fff;
-  overflow: auto;
+  font: 16px/normal serif !important;
+  color: #000 !important;
+  background: #fff !important;
+  overflow: auto !important;
+  display: block !important;
 }
 
 body {
-  font: 16px/normal serif;
-  color: #000;
-  background: #fff;
-  margin: 8px;
+  font: 16px/normal serif !important;
+  color: #000 !important;
+  background: #fff !important;
+  margin: 8px !important;
+  display: block !important;
 }
 
 /* ——— Block-level elements ——— */
 address, article, aside, blockquote, details, dialog,
 dd, div, dl, dt, fieldset, figcaption, figure, footer, form,
 header, hgroup, main, nav, p, pre, search, section, summary {
-  display: block;
+  display: block !important;
 }
 
 /* ——— Headings ——— */
 h1 {
-  display: block;
-  font-size: 2em;
-  font-weight: bold;
-  margin: 0.67em 0;
+  display: block !important;
+  font-size: 2em !important;
+  font-weight: bold !important;
+  margin: 0.67em 0 !important;
 }
 
 h2 {
-  display: block;
-  font-size: 1.5em;
-  font-weight: bold;
-  margin: 0.83em 0;
+  display: block !important;
+  font-size: 1.5em !important;
+  font-weight: bold !important;
+  margin: 0.83em 0 !important;
 }
 
 h3 {
-  display: block;
-  font-size: 1.17em;
-  font-weight: bold;
-  margin: 1em 0;
+  display: block !important;
+  font-size: 1.17em !important;
+  font-weight: bold !important;
+  margin: 1em 0 !important;
 }
 
 h4 {
-  display: block;
-  font-size: 1em;
-  font-weight: bold;
-  margin: 1.33em 0;
+  display: block !important;
+  font-size: 1em !important;
+  font-weight: bold !important;
+  margin: 1.33em 0 !important;
 }
 
 h5 {
-  display: block;
-  font-size: 0.83em;
-  font-weight: bold;
-  margin: 1.67em 0;
+  display: block !important;
+  font-size: 0.83em !important;
+  font-weight: bold !important;
+  margin: 1.67em 0 !important;
 }
 
 h6 {
-  display: block;
-  font-size: 0.67em;
-  font-weight: bold;
-  margin: 2.33em 0;
+  display: block !important;
+  font-size: 0.67em !important;
+  font-weight: bold !important;
+  margin: 2.33em 0 !important;
 }
 
 /* ——— Paragraphs ——— */
 p {
-  margin: 1em 0;
+  margin: 1em 0 !important;
 }
 
 /* ——— Links ——— */
 a {
-  color: #0000ee;
-  text-decoration: underline;
+  color: #0000ee !important;
+  text-decoration: underline !important;
+  cursor: pointer !important;
 }
 
 a:visited {
-  color: #551a8b;
+  color: #551a8b !important;
 }
 
 /* ——— Lists ——— */
 ul {
-  display: block;
-  list-style-type: disc;
-  margin: 1em 0;
-  padding-left: 40px;
+  display: block !important;
+  list-style-type: disc !important;
+  margin: 1em 0 !important;
+  padding-left: 40px !important;
 }
 
 ol {
-  display: block;
-  list-style-type: decimal;
-  margin: 1em 0;
-  padding-left: 40px;
+  display: block !important;
+  list-style-type: decimal !important;
+  margin: 1em 0 !important;
+  padding-left: 40px !important;
 }
 
 li {
-  display: list-item;
+  display: list-item !important;
+}
+
+dl {
+  margin: 1em 0 !important;
+}
+
+dd {
+  margin-left: 40px !important;
 }
 
 /* ——— Tables ——— */
 table {
-  display: table;
-  border-collapse: separate;
-  border-spacing: 2px;
+  display: table !important;
+  border-collapse: separate !important;
+  border-spacing: 2px !important;
 }
 
 caption {
-  display: table-caption;
-  text-align: center;
+  display: table-caption !important;
+  text-align: center !important;
 }
 
 thead {
-  display: table-header-group;
+  display: table-header-group !important;
+  vertical-align: middle !important;
 }
 
 tbody {
-  display: table-row-group;
+  display: table-row-group !important;
+  vertical-align: middle !important;
 }
 
 tfoot {
-  display: table-footer-group;
+  display: table-footer-group !important;
+  vertical-align: middle !important;
 }
 
 tr {
-  display: table-row;
+  display: table-row !important;
+  vertical-align: inherit !important;
 }
 
 col {
-  display: table-column;
+  display: table-column !important;
 }
 
 colgroup {
-  display: table-column-group;
+  display: table-column-group !important;
 }
 
 th, td {
-  display: table-cell;
-  padding: 1px;
-  vertical-align: middle;
+  display: table-cell !important;
+  padding: 1px !important;
+  vertical-align: inherit !important;
 }
 
 th {
-  font-weight: bold;
-  text-align: center;
+  font-weight: bold !important;
+  text-align: center !important;
 }
 
 /* ——— Form elements ——— */
+input, textarea, select, button {
+  font-family: monospace !important;
+  font-size: 13.3333px !important;
+  color: #000 !important;
+}
+
 input, textarea {
-  border: 2px inset;
-  padding: 1px;
+  border: 2px inset !important;
+  padding: 1px !important;
+}
+
+textarea {
+  white-space: pre-wrap !important;
+  resize: both !important;
 }
 
 button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  text-align: center;
-  padding: 1px 6px;
-  border: 2px outset;
-  background: #efefef;
+  text-align: center !important;
+  padding: 1px 6px !important;
+  border: 2px outset !important;
+  background: #efefef !important;
+  cursor: default !important;
 }
 
 select {
-  border: 1px solid;
+  border: 1px solid !important;
+}
+
+fieldset {
+  border: 2px groove #c0c0c0 !important;
+  padding: 0.35em 0.75em 0.625em !important;
+  margin: 0 2px !important;
+}
+
+legend {
+  padding: 0 2px !important;
+}
+
+label {
+  cursor: default !important;
 }
 
 /* ——— Preformatted & code ——— */
 pre, code, kbd, samp {
-  font-family: monospace;
-  font-size: 1em;
+  font-family: monospace !important;
+  font-size: 1em !important;
 }
 
 pre {
-  margin: 1em 0;
-  white-space: pre;
+  margin: 1em 0 !important;
+  white-space: pre !important;
 }
 
 /* ——— Inline text semantics ——— */
 strong, b {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 em, i, cite, var, dfn {
-  font-style: italic;
+  font-style: italic !important;
 }
 
 small {
-  font-size: smaller;
+  font-size: smaller !important;
 }
 
 sub {
-  vertical-align: sub;
-  font-size: smaller;
+  vertical-align: sub !important;
+  font-size: smaller !important;
 }
 
 sup {
-  vertical-align: super;
-  font-size: smaller;
+  vertical-align: super !important;
+  font-size: smaller !important;
 }
 
 u, ins {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 s, strike, del {
-  text-decoration: line-through;
+  text-decoration: line-through !important;
 }
 
 mark {
-  background: #ff0;
-  color: #000;
+  background: #ff0 !important;
+  color: #000 !important;
 }
 
 abbr[title] {
-  text-decoration: underline dotted;
+  text-decoration: underline dotted !important;
 }
 
 /* ——— Horizontal rule ——— */
 hr {
-  display: block;
-  margin: 0.5em 0;
-  border: 1px inset;
-  height: 0;
+  display: block !important;
+  margin: 0.5em 0 !important;
+  border-top: 1px inset !important;
+  height: 0 !important;
+  overflow: hidden !important;
 }
 
 /* ——— Blockquote ——— */
 blockquote {
-  margin: 1em 40px;
+  margin: 1em 40px !important;
 }
 
 /* ——— Images & media ——— */
 img {
-  max-width: none;
-  height: auto;
-  border: none;
+  max-width: none !important;
+  height: auto !important;
+  border: none !important;
+}
+
+/* ——— Inline elements ——— */
+span, a, strong, em, b, i, u, s, small, sub, sup, abbr, cite,
+code, kbd, samp, var, dfn, mark, del, ins, q, time, data, ruby {
+  display: inline !important;
 }
 
 /* ——— Hidden attribute ——— */
 [hidden] {
-  display: none;
+  display: none !important;
 }
 
 /* END of NoCSS */

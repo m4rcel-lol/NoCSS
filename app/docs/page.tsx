@@ -95,8 +95,8 @@ export default function DocsPage() {
                   The strategy is simple but powerful:
                 </p>
                 <ol className="list-decimal list-inside space-y-2 ml-4">
-                  <li>Apply universal selector <code className="bg-gray-100 px-2 py-1 rounded">*</code> to clear common author styling</li>
-                  <li>Set explicit default values for root, body, headings, lists, tables, and form elements</li>
+                  <li>Apply universal selector <code className="bg-gray-100 px-2 py-1 rounded">*</code> with <code className="bg-gray-100 px-2 py-1 rounded">!important</code> to clear common author styling regardless of specificity</li>
+                  <li>Set explicit default values with <code className="bg-gray-100 px-2 py-1 rounded">!important</code> for root, body, headings, lists, tables, and form elements</li>
                   <li>Include pseudo-elements <code className="bg-gray-100 px-2 py-1 rounded">::before</code> and <code className="bg-gray-100 px-2 py-1 rounded">::after</code></li>
                   <li>Restore correct display types for block, inline, and table elements</li>
                   <li>Add specific rules for common elements (links, headings, lists, etc.)</li>
@@ -104,9 +104,9 @@ export default function DocsPage() {
                 <div className="bg-gray-900 text-white p-4 rounded-lg mt-4 overflow-x-auto">
                   <code className="text-sm">
                     {`*, *::before, *::after {
-  background: transparent;
-  margin: 0;
-  padding: 0;
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
   /* ... explicit browser-default values ... */
 }`}
                   </code>
@@ -147,13 +147,13 @@ export default function DocsPage() {
                 <div className="space-y-4">
                   <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
                     <h3 className="font-bold text-gray-900 mb-2">
-                      1. Specificity Conflicts
+                      1. Inline Styles
                     </h3>
                     <p>
-                      Without <code className="bg-white px-2 py-1 rounded">!important</code>, author styles with equal or higher specificity may still override NoCSS. Inline styles will always take precedence. For example:
+                      Inline styles with <code className="bg-white px-2 py-1 rounded">!important</code> will still take precedence over NoCSS. Regular inline styles are overridden. For example:
                     </p>
                     <code className="block bg-gray-900 text-white p-2 rounded mt-2 text-sm">
-                      {`<div style="color: red;">Text</div>`}
+                      {`<div style="color: red !important;">Text</div>`}
                     </code>
                   </div>
 

@@ -89,7 +89,7 @@ export default function DocsPage() {
               </h2>
               <div className="prose max-w-none text-gray-700 space-y-4">
                 <p>
-                  NoCSS is a custom-written stylesheet that explicitly sets CSS properties to browser-default values using <code className="bg-gray-100 px-2 py-1 rounded">!important</code>, overriding any author styles.
+                  NoCSS is a custom-written stylesheet that explicitly sets CSS properties to browser-default values, recreating the unstyled look of a page with no CSS.
                 </p>
                 <p>
                   The strategy is simple but powerful:
@@ -104,9 +104,9 @@ export default function DocsPage() {
                 <div className="bg-gray-900 text-white p-4 rounded-lg mt-4 overflow-x-auto">
                   <code className="text-sm">
                     {`*, *::before, *::after {
-  background: transparent !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  background: transparent;
+  margin: 0;
+  padding: 0;
   /* ... explicit browser-default values ... */
 }`}
                   </code>
@@ -147,13 +147,13 @@ export default function DocsPage() {
                 <div className="space-y-4">
                   <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
                     <h3 className="font-bold text-gray-900 mb-2">
-                      1. Inline !important Styles
+                      1. Specificity Conflicts
                     </h3>
                     <p>
-                      Cannot override inline styles that also use <code className="bg-white px-2 py-1 rounded">!important</code>. For example:
+                      Without <code className="bg-white px-2 py-1 rounded">!important</code>, author styles with equal or higher specificity may still override NoCSS. Inline styles will always take precedence. For example:
                     </p>
                     <code className="block bg-gray-900 text-white p-2 rounded mt-2 text-sm">
-                      {`<div style="color: red !important;">Text</div>`}
+                      {`<div style="color: red;">Text</div>`}
                     </code>
                   </div>
 
@@ -162,7 +162,7 @@ export default function DocsPage() {
                       2. JavaScript-Applied Styles
                     </h3>
                     <p>
-                      Styles applied dynamically via JavaScript after NoCSS loads may not be fully overridden, especially if they use inline styles or <code className="bg-white px-2 py-1 rounded">!important</code>.
+                      Styles applied dynamically via JavaScript after NoCSS loads may not be fully overridden, especially if they use inline styles or high-specificity selectors.
                     </p>
                   </div>
 

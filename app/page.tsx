@@ -26,7 +26,7 @@ export default function Home() {
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center space-x-2 group">
               <Image
-                src="/Untitled283_20260211071004.png"
+                src="/logo.png"
                 alt="NoCSS Logo"
                 width={40}
                 height={40}
@@ -64,7 +64,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex justify-center mb-8">
             <Image
-              src="/Untitled283_20260211071004.png"
+              src="/logo.png"
               alt="NoCSS Logo"
               width={160}
               height={160}
@@ -250,7 +250,7 @@ document.head.appendChild(link);`}</pre>
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0 flex items-center space-x-3">
               <Image
-                src="/Untitled283_20260211071004.png"
+                src="/logo.png"
                 alt="NoCSS Logo"
                 width={32}
                 height={32}
